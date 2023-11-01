@@ -7,24 +7,9 @@
     </head>
     <body onload="fillList()">
         <h1>Main Page</h1>
-        <button onclick="window.location.href = 'newPost.html';">Create New Post</button>
+        <button class="regButton" onclick="window.location.href = 'newPost.html';">Create New Post</button>
         <br>
-        <ul id="listOfPosts">
-            <li onclick="window.location.href = 'postDetails.html';">
-                <h2>Dummy Post 1</h2>
-                <p>this is the text for the dummy post 1</p>
-            </li>
-            <li onclick="window.location.href = 'postDetails.html';">
-                <h2>Dummy Post 2</h2>
-                <p>This is the text that will be inside the second dummy post</p>
-            </li>
-            <li onclick="window.location.href = 'postDetails.html';">
-                <h2>Dummy Post 3</h2>
-                <p>This here is the text that will sooner or latwould see in the post since it is dummy and I am just talking atp</p>
-            </li>
-        </ul>
-
-        <button onclick="test()">test</button>
+        <ul id="listOfPosts"></ul>
 
     </body>
 </html>
