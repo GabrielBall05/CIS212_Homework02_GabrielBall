@@ -34,10 +34,18 @@ button
   height: 40px;
   width: 200px;
   margin-left: 50px;
+  margin-top: 25px;
   text-align: center;
 }
 
 #detailsDiv
 {
     margin-left: 50px;
+}
+
+#postTitle
+{
+    width: 99.5%; /* Roughly matches size of TinyMCE */
+    height: 50px;
+    font-size: 28px;
 }
