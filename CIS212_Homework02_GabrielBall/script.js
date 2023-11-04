@@ -79,6 +79,10 @@ function fillList()
        //Gives the list item an on click
        //li.setAttribute("onclick", "window.location.href = 'postDetails.html';");
        li.setAttribute("onclick", 'fillInDetails(this.id)');
+
+       //Try doing an anchor with the text of the post's title. then do a += <html stuff with onclick></>
+
+
        //Appends that list item to the unordered list
        ul.appendChild(li);
     }
