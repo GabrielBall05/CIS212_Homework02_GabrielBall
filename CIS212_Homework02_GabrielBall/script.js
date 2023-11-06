@@ -56,23 +56,7 @@ function fillList()
        p.innerHTML = list[i].post;
        li.appendChild(p);
 
-       //Makes a delete button
-       var b = document.createElement("button");
-       b.innerHTML = "Delete";
-       b.setAttribute("class", "delButton");
-       b.setAttribute("onclick", 'deletePost(i)');
-       li.appendChild(b);
-       
-
        //I wont be listing the date on the main page. That will be shown in the details page upon clicking on a post
-
-       //=====
-       //For testing to see dates on main page
-       var d = document.createElement("p");
-       d.innerHTML = list[i].date;
-       li.appendChild(d);
-       //======
-
 
        //Gives the list item a unique id (counter) 
        li.setAttribute("id", i);
@@ -99,16 +83,18 @@ function initializeList()
     sessionStorage.setItem("allPosts", JSON.stringify(posts));
 }
 
-function fillInDetails(id)
+function fillInDetails(i)
 {
     window.location.href = 'postDetails.html';
 
     var list = JSON.parse(sessionStorage.getItem("allPosts"));
-    //var ul = document.getElementById("postDetails");
+    alert(list[i].title);
 
-    document.getElementById("details_title").innerHTML = list[id].title;
-    document.getElementById("details_post").innerHTML = list[id].post;
-    document.getElementById("details_date").innerHTML = list[id].date;
+    //It doesn't like this. It doesn't seem to get to alert("test") right below it
+    var temp = document.getElementById("details_post").innerHTML;
+    alert(temp);
+
+    alert("test");
 
 
     // var li = document.createElement("li");
