@@ -85,35 +85,27 @@ function initializeList()
 
 function fillInDetails(i)
 {
-    window.location.href = 'postDetails.html';
+    sessionStorage.setItem("clickedId", JSON.stringify(i));
+
+    window.location.href = `postDetails.html?id=${i}`;
+
+    // postDetails.html?id=2&key=value
+    const params = new URLSearchParams(window.location.search);
 
     var list = JSON.parse(sessionStorage.getItem("allPosts"));
-    alert(list[i].title);
+    //alert(list[Number(params.get("id"))].title);
+    var j = Number(params.get("id"));
 
-    //It doesn't like this. It doesn't seem to get to alert("test") right below it
-    var temp = document.getElementById("details_post").innerHTML;
-    alert(temp);
+    var x = JSON.parse(sessionStorage.getItem("clickedId"));
+    console.log(x);
 
-    alert("test");
+    // document.getElementById("details_title").innerText = list[j].title;
+    // document.getElementById("details_post").innerText = list[j].post;
+    // document.getElementById("details_date").innerText = list[j].date;
 
-
-    // var li = document.createElement("li");
-    // var t = document.createElement("h2");
-    // t.innerHTML = list[id].title;
-    // li.appendChild(t);
-    // ul.appendChild(li);
-
-    // li = document.createElement("li");
-    // var d = document.createElement("h3");
-    // d.innerHTML = list[id].date;
-    // li.appendChild(d);
-    // ul.appendChild(li);
-
-    // li = document.createElement("li");
-    // var p = document.createElement("p");
-    // p.innerHTML = list[id].post;
-    // li.appendChild(p);
-    // ul.appendChild(li);
+    document.getElementById("details_title").innerText = list[x].title;
+    document.getElementById("details_post").innerText = list[x].post;
+    document.getElementById("details_date").innerText = list[x].date;
 }
 
 function deletePost(i)
