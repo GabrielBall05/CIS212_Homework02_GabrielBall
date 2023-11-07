@@ -61,13 +61,8 @@ function fillList()
        //Gives the list item a unique id (counter) 
        li.setAttribute("id", i);
        //Gives the list item an on click
-       //li.setAttribute("onclick", "window.location.href = 'postDetails.html';");
-       li.setAttribute("onclick", 'fillInDetails(this.id)');
-       li.setAttribute("onclick", 'idInURL(this.id)');
-       //li.setAttribute("onclick", "window.location.href = `postDetails.html?id=${i}`;");
-
-       //Try doing an anchor with the text of the post's title. then do a += <html stuff with onclick></>
-
+       li.setAttribute("onclick", 'idInSS(this.id)');
+                   //li.setAttribute("onclick", 'idInURL(this.id)');
 
        //Appends that list item to the unordered list
        ul.appendChild(li);
@@ -85,25 +80,42 @@ function initializeList()
     sessionStorage.setItem("allPosts", JSON.stringify(posts));
 }
 
-function idInURL(id)
+function idInSS(id)
 {
-    window.location.href = `postDetails.html?id=${id}`;
+    sessionStorage.setItem("clickedID", JSON.stringify(id));
+    window.location.href = "postDetails.html";
 }
 
 function fillInDetails()
 {
-    const params = new URLSearchParams(window.location.search);
-
     var list = JSON.parse(sessionStorage.getItem("allPosts"));
 
-    var i = Number(params.get("id"));
+    var i = JSON.parse(sessionStorage.getItem("clickedID"));
     
     document.getElementById("details_title").innerText = list[i].title;
     document.getElementById("details_date").innerText = list[i].date;
-    document.getElementById("details_post").innerText = list[i].post;
+    document.getElementById("details_post").innerHTML = list[i].post;
 }
 
 function deletePost(i)
 {
     alert("delete");
 }
+
+// function idInURL(id)
+// {
+//     window.location.href = `postDetails.html?id=${id}`;
+// }
+
+// function fillInDetails()
+// {
+//     const params = new URLSearchParams(window.location.search);
+
+//     var list = JSON.parse(sessionStorage.getItem("allPosts"));
+
+//     var i = Number(params.get("id"));
+    
+//     document.getElementById("details_title").innerText = list[i].title;
+//     document.getElementById("details_date").innerText = list[i].date;
+//     document.getElementById("details_post").innerText = list[i].post;
+// }
