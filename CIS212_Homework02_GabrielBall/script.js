@@ -63,6 +63,8 @@ function fillList()
        //Gives the list item an on click
        //li.setAttribute("onclick", "window.location.href = 'postDetails.html';");
        li.setAttribute("onclick", 'fillInDetails(this.id)');
+       li.setAttribute("onclick", 'idInURL(this.id)');
+       //li.setAttribute("onclick", "window.location.href = `postDetails.html?id=${i}`;");
 
        //Try doing an anchor with the text of the post's title. then do a += <html stuff with onclick></>
 
@@ -83,29 +85,22 @@ function initializeList()
     sessionStorage.setItem("allPosts", JSON.stringify(posts));
 }
 
-function fillInDetails(i)
+function idInURL(id)
 {
-    sessionStorage.setItem("clickedId", JSON.stringify(i));
+    window.location.href = `postDetails.html?id=${id}`;
+}
 
-    window.location.href = `postDetails.html?id=${i}`;
-
-    // postDetails.html?id=2&key=value
+function fillInDetails()
+{
     const params = new URLSearchParams(window.location.search);
 
     var list = JSON.parse(sessionStorage.getItem("allPosts"));
-    //alert(list[Number(params.get("id"))].title);
-    var j = Number(params.get("id"));
 
-    var x = JSON.parse(sessionStorage.getItem("clickedId"));
-    console.log(x);
-
-    // document.getElementById("details_title").innerText = list[j].title;
-    // document.getElementById("details_post").innerText = list[j].post;
-    // document.getElementById("details_date").innerText = list[j].date;
-
-    document.getElementById("details_title").innerText = list[x].title;
-    document.getElementById("details_post").innerText = list[x].post;
-    document.getElementById("details_date").innerText = list[x].date;
+    var i = Number(params.get("id"));
+    
+    document.getElementById("details_title").innerText = list[i].title;
+    document.getElementById("details_date").innerText = list[i].date;
+    document.getElementById("details_post").innerText = list[i].post;
 }
 
 function deletePost(i)

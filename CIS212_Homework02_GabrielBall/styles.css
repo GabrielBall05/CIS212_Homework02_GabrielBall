@@ -63,3 +63,9 @@ li:hover
     height: 50px;
     font-size: 28px;
 }
+
+#detailsBody
+{
+    margin-left: 50px;
+    margin-right: 50px;
+}
