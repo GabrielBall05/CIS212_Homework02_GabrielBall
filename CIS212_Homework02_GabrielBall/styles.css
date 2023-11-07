@@ -38,7 +38,7 @@ li:hover
   text-align: center;
 }
 
-.delButton
+#delButton
 {
     background-color: Red;
     border-radius: 12px;
@@ -47,14 +47,9 @@ li:hover
     cursor: pointer;
     font-family: "Segoe UI";
     font-size: 100%;
-    height: 30px;
-    width: 100px;
+    height: 40px;
+    width: 200px;
     text-align: center;
-}
-
-#detailsDiv
-{
-    margin-left: 50px;
 }
 
 #postTitle
