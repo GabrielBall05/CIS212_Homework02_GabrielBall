@@ -21,14 +21,23 @@
         });
         </script>
     </head>
-    <body>
-        <h1>Create Your Post:</h1>
-        <input type="text" id="postTitle" placeholder="Post Title">
-        <form method="post">
-            <textarea id="mytextarea"></textarea>
-        </form>
+    <body class="removeLeftMargin">
+        <header class="tab">
+            <div class="tabDiv">
+                <button class="tabMain" onclick="window.location.href = 'index.html';">Main Page</button>
+                <button class="tabNew">New Post</button>
+            </div>
+        </header>
+        <div id="newPostDiv">
+            <input type="text" id="postTitle" placeholder="Post Title">
+            <input type="text" id="postType" placeholder="What type of post is this?">
+            <form method="post">
+                <textarea id="mytextarea"></textarea>
+            </form>
+    
+            <button class="regButton" onclick="addPost(); window.location.href = 'index.html';">Post</button>
+            <!-- <button class="regButton" onclick="window.location.href = 'index.html';">Back</button> -->
+        </div>
 
-        <button class="regButton" onclick="addPost(); window.location.href = 'index.html';">Post</button>
-        <button class="regButton" onclick="window.location.href = 'index.html';">Back</button>
     </body>
 </html>

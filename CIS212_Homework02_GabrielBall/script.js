@@ -1,16 +1,17 @@
 function addPost()
 {
     //alert("adding post");
-    var t = document.getElementById("postTitle").value;
-    var p = tinymce.get('mytextarea').getContent();
+    var postTitle = document.getElementById("postTitle").value;
+    var postType = document.getElementById("postType").value;
+    var postText = tinymce.get('mytextarea').getContent();
 
     //Gets date
     var date = new Date();
     var day = date.getDate();
-    var month = date.getMonth() + 1; //Have to do plus 1 for some reason
+    var month = date.getMonth() + 1;
     var year = date.getFullYear();
     //Puts in mm-dd-yy format
-    var d = month + "-" + day + "-" + year;
+    var fullDate = month + "-" + day + "-" + year;
 
     //Get the list from session storage
     var posts = JSON.parse(sessionStorage.getItem("allPosts"));
@@ -19,9 +20,10 @@ function addPost()
     posts[posts.length] = {};
 
     //Insert the details
-    posts[posts.length - 1].title = t;
-    posts[posts.length - 1].post = p; 
-    posts[posts.length - 1].date = d;
+    posts[posts.length - 1].title = postTitle;
+    posts[posts.length - 1].type = postType;
+    posts[posts.length - 1].post = postText; 
+    posts[posts.length - 1].date = fullDate;
 
     //Put list of posts back into session storage (will have the new post at the end)
     sessionStorage.setItem("allPosts", JSON.stringify(posts));
@@ -51,19 +53,19 @@ function fillList()
        var li = document.createElement("li");
 
        //Creates an h2 element for the post's title
-       var t = document.createElement("h2");
+       var postTitle = document.createElement("h2");
        //Setting that h2's text to be that post's title from the array at i
-       t.innerText = list[i].title;
+       postTitle.innerText = list[i].title;
        //Appends the title (h2) to the list item
-       li.appendChild(t);
+       li.appendChild(postTitle);
 
        //Does same thing but for the contents of the post
-       var p = document.createElement("p");
+       var postText = document.createElement("p");
        //Can't use innerText this time because the TinyMCE returns <p></p> for the contents of the text area
-       p.innerHTML = list[i].post;
-       li.appendChild(p);
+       postText.innerHTML = list[i].post;
+       li.appendChild(postText);
 
-       //I wont be listing the date on the main page. That will be shown in the details page upon clicking on a post
+       //I wont be listing the date or type on the main page. That will be shown in the details page upon clicking on a post
 
        //Gives the list item a unique id (the counter) 
        li.setAttribute("id", i);
@@ -82,9 +84,9 @@ function initializeList()
 {
     //There was nothing in the list, put some dummy posts in it
     var posts = [
-        {title: "Dummy Title 1", post: "dummy text for post 1", date: "10-20-23"},
-        {title: "Dummy Title 2", post: "dummy text for post 2", date: "10-21-23"},
-        {title: "Dummy Title 3", post: "dummy text for post 3", date: "10-22-23"}
+        {title: "John Wick 4 Review", type: "Review", post: "'John Wick 4' delivers another adrenaline-fueled chapter in the saga of everyone's favorite relentless assassin. Keanu Reeves reprises his role with the same magnetic intensity, seamlessly blending action and emotion. The film's choreography is a symphony of violence, showcasing Wick's unparalleled skills in stunningly inventive ways. The narrative takes unexpected turns, expanding the intricate underworld mythology. New characters add layers to the story, keeping the audience engaged. While the plot may occasionally tread familiar ground, the relentless pace and breathtaking set pieces make it a worthy addition to the franchise. 'John Wick 4' continues to raise the bar for action cinema.", date: "03-24-23"},
+        {title: "The Reason the 'u' is left out in some English words", type: "Informative", post: "The absence of 'u' in 'color' and 'favorite' is a linguistic divergence between American English and British English. Noah Webster, the American lexicographer, opted to simplify and standardize spelling in the early 19th century. His intention was to create a distinct American identity, and part of this involved trimming down certain letters. Hence, the omission of 'u' in words like 'color' and 'favorite.' While British English retained the original spellings, American English embraced Webster's reforms. So, it's not a matter of right or wrong, but rather a reflection of the historical evolution and regional nuances in the English language.", date: "11-01-23"},
+        {title: "My Day", type: "Personal", post: "Whew, what a day! The office felt like a battleground, deadlines dropping like bombs, and emails attacking from all fronts. My to-do list was a formidable adversary, and I fought the good fight against the relentless onslaught of tasks. The coffee became my trusty sidekick, fueling the skirmishes with spreadsheets and reports. Each meeting was a strategic maneuver, navigating through the chaos of conflicting priorities. But, hey, I held my ground, even if it felt like I was wading through a swamp of stress. Now, I'm just counting the minutes until I can kick back, decompress, and bid this battlefield farewell.", date: "10-21-23"}
     ];
 
     //Put the list in session storage
@@ -109,6 +111,7 @@ function fillInDetails() //Gets called when details page loads
     
     //Change the text for all the placeholders that are in postDetails.html to be that post's details
     document.getElementById("details_title").innerText = list[i].title;
+    document.getElementById("details_type").innerText = list[i].type;
     document.getElementById("details_date").innerText = "Date: " + list[i].date;
     document.getElementById("details_post").innerHTML = list[i].post;
 }

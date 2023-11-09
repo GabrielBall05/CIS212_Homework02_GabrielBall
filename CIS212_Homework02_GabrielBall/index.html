@@ -10,9 +10,15 @@
         <script src="script.js"></script>
         <link rel="stylesheet" href="styles.css">
     </head>
-    <body onload="fillList()">
-        <h1>Main Page</h1>
-        <button class="regButton" onclick="window.location.href = 'newPost.html';">Create New Post</button>
+    <body onload="fillList()" class="removeLeftMargin">
+        <header class="tab">
+            <div class="tabDiv">
+                <button class="tabMain" onclick="window.location.href = 'index.html';">Main Page</button>
+                <button class="tabNew" onclick="window.location.href = 'newPost.html';">New Post</button>
+            </div>
+        </header>
+
+        <!-- <button class="regButton" onclick="window.location.href = 'newPost.html';">Create New Post</button> -->
         <br>
         <ul id="listOfPosts"></ul>
     </body>

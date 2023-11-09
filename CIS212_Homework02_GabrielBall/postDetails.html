@@ -5,16 +5,25 @@
         <script src="script.js"></script>
         <link rel="stylesheet" href="styles.css">
     </head>
-    <body onload="fillInDetails()" id="detailsBody">
-        <h1>Post Details</h1>
+    <body onload="fillInDetails()" class="removeLeftMargin">
+        <header class="tab">
+            <div class="tabDiv">
+                <button class="tabMain" onclick="window.location.href = 'index.html';">Main Page</button>
+                <button class="tabNew" onclick="window.location.href = 'newPost.html';">New Post</button>
+            </div>
+        </header>
         <br>
-        <ul id="postDetails"></ul>
-        <h2 id="details_title">title</h2>
-        <h3 id="details_date">date</h3>
-        <p id="details_post">post</p>
-        <div>
-            <button class="regButton" onclick="window.location.href = 'index.html';" style="margin-left: 0px;">Back</button>
+        <div id="detailsDiv">
+            <h2 id="details_title">title</h2>
+            <h3 id="details_date">date</h3>
+            <h3 id="details_type">type</h3>
+            <p id="details_post">post</p>
             <button id="delButton" onclick="deletePost()">Delete</button>
         </div>
+
+        <!-- <div>
+            button class="regButton" onclick="window.location.href = 'index.html';" style="margin-left: 0px;">Back</button>
+            <button id="delButton" onclick="deletePost()">Delete</button>
+        </div> -->
     </body>
 </html>
