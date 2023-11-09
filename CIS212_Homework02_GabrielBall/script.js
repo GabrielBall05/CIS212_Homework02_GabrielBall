@@ -133,10 +133,10 @@ function deletePost()
 
         //Put the list back into session storage (will not have the spliced element)
         sessionStorage.setItem("allPosts", JSON.stringify(list));
-    }
 
-    //Move to main page
-    window.location.href = "index.html";
+        //Move to main page
+        window.location.href = "index.html";
+    }
 }
 
 // function idInURL(id)
