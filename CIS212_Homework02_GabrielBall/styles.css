@@ -8,32 +8,33 @@ ul
 li
 {
     padding-left: 25px;
+    padding-right: 25px;
     margin-bottom: 15px;
     margin-right: 20%;
     margin-left: 20%;
-    background-color: #30696E;
+    background-color: #415021;
     border-style: solid;
     border-width: 5px;
-    border-color: #30696E;
+    border-color: #415021;
     border-radius: 25px;
 }
 
 li:hover
 {
     transition-duration: 750ms;
-    background-color: #49A780;
+    background-color: #121F2B;
 }
 
 li:not(:hover)
 {
     transition-duration: 750ms;
-    background-color: #30696E;
+    background-color: #415021;
 }
 
 body
 {
     margin-left: 0px;
-    background-color: #0B0505;
+    background-color: #26101B;
 }
 
 .tab
@@ -45,13 +46,13 @@ body
 
 .tabDiv
 {
-    background-color: #0B1119;
+    background-color: #682B3A;
     display: flex;
 }
 
 .tabMain
 {
-    background-color: #49A780;
+    background-color: #121F2B;
     border-radius: 20px;
     border-width: 0;
     color: #ffffff;
@@ -68,7 +69,7 @@ body
 
 .tabNew
 {
-    background-color: #49A780;
+    background-color: #121F2B;
     border-radius: 20px;
     border-width: 0;
     color: #ffffff;
@@ -85,34 +86,46 @@ body
 
 .tabMain:hover, .tabNew:hover
 {
-    background-color: #33B2A7;
+    background-color: #51B883;
     transition-duration: 1000ms;
 }
 
 .tabMain:not(:hover), .tabNew:not(:hover)
 {
-    background-color: #49A780;
+    background-color: #121F2B;
     transition-duration: 1000ms;
 }
 
 .regButton 
 {
-  background-color: #405cf5;
+  background-color: #51B883;
   border-radius: 12px;
   border-width: 0;
   color: #ffffff;
   cursor: pointer;
   font-family: "Segoe UI";
   font-size: 100%;
-  height: 40px;
-  width: 200px;
-  margin-top: 25px;
+  height: 50px;
+  width: 20%;
+  margin-top: 15px;
   text-align: center;
+}
+
+.regButton:hover
+{
+    background-color: #121F2B;
+    transition-duration: 500ms;
+}
+
+.regButton:not(:hover)
+{
+    background-color: #51B883;
+    transition-duration: 500ms;
 }
 
 #delButton
 {
-    background-color: #B23372;
+    background-color: #B23333;
     border-radius: 12px;
     border-width: 0;
     color: #ffffff;
@@ -126,26 +139,26 @@ body
 
 #delButton:hover
 {
-    background-color: #B23333;
+    background-color: #B23372;
     transition-duration: 1000ms;
 }
 
 #delButton:not(:hover)
 {
-    background-color: #B23372;
+    background-color: #B23333;
     transition-duration: 1000ms;
 }
 
 #postTitle
 {
-    width: 99%; /* Roughly matches size of TinyMCE */
+    width: 99.3%; /* Roughly matches size of TinyMCE */
     height: 50px;
     font-size: 28px;
 }
 
 #postType
 {
-    width: 99%; /* Roughly matches size of TinyMCE */
+    width: 99.3%; /* Roughly matches size of TinyMCE */
     height: 50px;
     font-size: 28px;
 }
@@ -153,10 +166,10 @@ body
 #detailsDiv
 {
     color: white;
-    background-color: #30696E;
+    background-color: #415021;
     border-style: solid;
-    border-width: 5px;
-    border-color: #30696E;
+    border-width: 3px;
+    border-color: White;
     border-radius: 15px;
     padding-left: 20px;
     padding-right: 20px;
@@ -171,4 +184,20 @@ body
     margin-top: 110px;
     margin-right: 15%;
     margin-left: 15%;
+}
+
+#postTitle, #postType
+{
+    background-color: #505D32;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 3px;
+    border-color: #505D32;
+    color: White;
+    margin-bottom: 5px;
+}
+
+::placeholder
+{
+    color: White;
 }
